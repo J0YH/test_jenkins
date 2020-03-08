@@ -1,10 +1,11 @@
-pipeline {
-    agent { docker { image 'node:6.3' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-            }
+node('node') {
+    try {
+        stage('Print env variables'){
+            sh 'printenv'
         }
+    }
+
+    catch (err) {
+        throw err
     }
 }

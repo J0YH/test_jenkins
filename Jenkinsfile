@@ -2,19 +2,37 @@ pipeline {
     agent any
 
     stages {
-        
-    stage('Initiate') {
-        steps {
-            echo 'I am initiating'
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('print env vars') {
+            steps {
+                sh 'printenv'
+            }
         }
     }
-
-    stage('Print env variables') {
-            sh 'printenv'
-    }
-    
-    }
 }
+
+
+// pipeline {
+//     agent any
+
+//     stages {
+        
+//     stage('Initiate') {
+//         steps {
+//             echo 'I am initiating'
+//         }
+//     }
+
+//     stage('Print env variables') {
+//             sh 'printenv'
+//     }
+    
+//     }
+// }
 
 // node('node') {
 //     try {

@@ -9,16 +9,9 @@ pipeline {
         }
     }
 
-    try {
-
-        stage('Print env variables') {
+    stage('Print env variables') {
             sh 'printenv'
-        }
-
-    } catch (err) {
-        throw err
     }
-        
     
     }
 }

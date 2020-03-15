@@ -1,11 +1,33 @@
-node('node') {
-    try {
-        stage('Print env variables'){
-            sh 'printenv'
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
         }
     }
-
-    catch (err) {
-        throw err
-    }
 }
+
+// node('node') {
+//     try {
+//         stage('Print env variables'){
+//             sh 'printenv'
+//         }
+//     }
+
+//     catch (err) {
+//         throw err
+//     }
+// }

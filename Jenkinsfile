@@ -2,21 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+        
+    stage('Initiate') {
+        steps {
+            echo 'I am initiating'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+    }
+
+    try {
+
+        stage('Print env variables') {
+            sh 'printenv'
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+
+    } catch (err) {
+        throw err
+    }
+        
+    
     }
 }
 
